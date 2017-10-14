@@ -1,9 +1,16 @@
+const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
+
 module.exports = {
-  entry: './source/js/index.jsx',
+  context: __dirname,
+  entry: [
+    './source/js/index.jsx'
+  ],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/public/'
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
@@ -25,15 +32,27 @@ module.exports = {
         }, {
             loader: "sass-loader"
         }]
+    },
+    {
+        test: /\.(jpeg|png|gif|svg)$/i,
+        loaders: [{
+            loader: 'file-loader',
+            options: {
+              name: 'source/img/logo.png',
+              outputPath: 'public/'
+            }  
+          }]
     }
-    ]
+]
   },
   devServer: {
+    publicPath: '/',
     historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
-    })
+      template: 'source/index.html'
+    }),
+    new webpack.NamedModulesPlugin()
   ]
 };
