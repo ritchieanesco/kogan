@@ -33,20 +33,13 @@ module.exports = {
             loader: "sass-loader"
         }]
     },
-    {
-        test: /\.(jpeg|png|gif|svg)$/i,
-        loaders: [{
-            loader: 'file-loader',
-            options: {
-              name: 'source/img/logo.png',
-              outputPath: 'public/'
-            }  
-          }]
-    }
+    { test: /\.(woff2?|jpe?g|png|gif|ico)$/, 
+        use: 'file-loader?name=./img/[name].[ext]' }
 ]
   },
   devServer: {
     publicPath: '/',
+    contentBase: 'public',
     historyApiFallback: true
   },
   plugins: [

@@ -4,7 +4,6 @@ import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
 import styles from '../../css/index.scss';
-import img from '../../img/logo.png';
 
 const PageNotFound = () => <main className='main'><h1>404 Page not found</h1></main>;
 
