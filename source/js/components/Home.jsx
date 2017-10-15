@@ -29,7 +29,7 @@ class Home extends Component {
         if (!cubicweights.length) {
             return products;
         }
-        const avg = cubicweights.reduce( ( p, c ) => p + c, 0) / cubicweights.length;
+        const avg = Math.floor(cubicweights.reduce( ( p, c ) => p + c, 0) / cubicweights.length);
         products.forEach(function (product) {
             if (product.category === 'Air Conditioners') {
                 product.cubicweight = avg;
@@ -48,8 +48,14 @@ class Home extends Component {
             })
         })
     }
+    convertToMeter ( num ) {
+        return num / 100;
+    }
     calcCubicAverage ( obj ) {
-        return (obj.size.width*obj.size.height*obj.size.length) * 250;
+        let w = this.convertToMeter( obj.size.width );
+        let h = this.convertToMeter( obj.size.height );
+        let l = this.convertToMeter( obj.size.length );
+        return (w * h * l) * 250;
     }
     componentDidMount () {
         this.loadProducts();
