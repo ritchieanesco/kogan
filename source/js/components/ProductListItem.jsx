@@ -5,11 +5,11 @@ const ProductListItem = (props) => {
     if ( props.size.width && props.size.length && props.size.height ) {
         specs = <dl className='product-info'>
             <dt>width</dt>
-            <dd>{props.size.width}</dd>
-            <dt>length</dt>
-            <dd>{props.size.length}</dd>
+            <dd>{props.size.width} cm</dd>
             <dt>height</dt>
-            <dd>{props.size.height}</dd>
+            <dd>{props.size.height} cm</dd>
+            <dt>length</dt>
+            <dd>{props.size.length} cm</dd>
         </dl>
     }
     let cubicweight;
