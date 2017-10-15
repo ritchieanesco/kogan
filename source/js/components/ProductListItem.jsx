@@ -14,7 +14,7 @@ const ProductListItem = (props) => {
     }
     let cubicweight;
     if ( props.cubicweight ) {
-        cubicweight = <p className='product-cubicweight'>Average cubic weight: {props.cubicweight}kg</p>
+        cubicweight = <p className='product-cubicweight'>Average cubic weight from air conditioner category: {props.cubicweight}kg</p>
     }
     return (
         <li className='product'>
